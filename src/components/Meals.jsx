@@ -1,5 +1,6 @@
 import useHttp from "./useHttp.jsx";
 import MealsItem from "./MealsItem.jsx";
+import baseURL from "../baseURL.js"
 
 import UserProgressContext from "../store/UserProgressContext.jsx";
 import { useContext } from "react";
