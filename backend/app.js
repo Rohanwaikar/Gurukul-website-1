@@ -5,7 +5,8 @@ import dotenv from 'dotenv';
 
 dotenv.config(); // Load environment variables from .env file
 
-
+console.log("EMAIL_USER:", process.env.EMAIL_USER);
+console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Loaded" : "Missing");
 const app = express();  // Creating an instance of express
 
 app.use(express.json());  // Middleware to parse JSON request bodies
@@ -31,7 +32,7 @@ app.get('/meals', async (req, res) => {
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'rohanwaikar29@gmail.com', // Your email address
+    user: process.env.EMAIL_USER,  // Your email address
     pass: process.env.EMAIL_PASS, // Your email password or app password
   },
 });
