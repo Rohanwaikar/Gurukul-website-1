@@ -3,7 +3,7 @@ import { useActionState, useContext } from "react";
 import UserProgressContext from "../store/UserProgressContext";
 import Input from "./Input.jsx";
 import useHttp from "./useHttp.jsx";
-import baseUrl from "../store/baseUrl.js";
+import baseUrl from "../baseUrl.js";
 
 
 
