@@ -1,5 +1,10 @@
 import fs from 'node:fs/promises';  // Using 'fs/promises' for promise-based file operations
 import express from 'express';  // Importing express to create the server
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+dotenv.config(); // Load environment variables from .env file
+
 
 const app = express();  // Creating an instance of express
 
@@ -20,6 +25,18 @@ app.get('/meals', async (req, res) => {
   const meals = await fs.readFile('./data/available-meals.json', 'utf8'); 
   res.json(JSON.parse(meals)); 
 }); 
+
+// Create reusable transporter object using SMTP transport (example Gmail SMTP)
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'rohanwaikar29@gmail.com', // Your email address
+    pass: process.env.EMAIL_PASS, // Your email password or app password
+  },
+});
+
+
 
 app.post('/orders', async (req, res) => {
   try {
@@ -54,6 +71,32 @@ app.post('/orders', async (req, res) => {
     const allOrders = JSON.parse(orders);
     allOrders.push(newOrder);
     await fs.writeFile('./data/orders.json', JSON.stringify(allOrders, null, 2));
+
+
+    // Send Notification Email
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.NOTIFY_EMAIL || process.env.EMAIL_USER, // where you want to receive notifications
+      subject: `New Enquiry Received - ID: ${newOrder.id}`,
+      text: `New enquiry received from ${name}.\n
+Email: ${email}
+Mobile: ${mobile}
+Address: ${street}, ${city} - ${postalCode}
+
+Enquiry ID: ${newOrder.id}`,
+    };
+
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error('Error sending notification email:', error);
+      } else {
+        console.log('Notification email sent:', info.response);
+      }
+    });
+
+
+
 
     res.status(201).json({ message: 'Order created!' });
   } catch (error) {
