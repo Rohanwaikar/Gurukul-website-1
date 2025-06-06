@@ -17,7 +17,7 @@ export default function Checkout() {
     },
   };
   const { data, error, refetch, clearData } = useHttp(
-    "http://localhost:3001/orders",
+    `${baseUrl}/orders`,
     requestConfig
   );
   async function checkoutAction(prevState, formData){
