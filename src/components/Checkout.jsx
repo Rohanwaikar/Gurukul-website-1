@@ -71,7 +71,7 @@ export default function Checkout() {
     >
       <form action={formAction}>
         <h2>Enquiry Form</h2>
-        <p>Contact No: 9822646823</p>
+        <p>Contact No: 9822646823, 9767713245</p>
         <p>Please fill your details below:</p>
         <Input
           label="Your Name"
