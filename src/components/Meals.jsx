@@ -13,6 +13,7 @@ const { data, loading, error } = useHttp(`${baseUrl}/meals`, {}, []);
         <section>
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error}</p>}
+            <h2 className="center">&#9889;Explore the Spaces&#9889;</h2>
 
             <ul id="meals">
                 {data.map(meal => (

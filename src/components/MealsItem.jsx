@@ -7,7 +7,7 @@ export default function MealsItem({ image, name, description }) {
             <img src={image} alt={name} />
             <div className="meal-item__content">
             <h3>{name}</h3>
-            <p className="meal-item__description">{description}</p>
+            {/* <p className="meal-item__description">{description}</p> */}
             </div>
             
         </article>

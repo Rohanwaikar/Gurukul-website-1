@@ -8,7 +8,7 @@ export default function Header() {
     <header id="main-header">
         <div id="title">
             <img src={logo} alt="" />
-            <h1>Shinobi Lakeview Retreat</h1>
+            <h1>Shinobi Lakeview Agritourism - Villa</h1>
         </div>
          
     </header>

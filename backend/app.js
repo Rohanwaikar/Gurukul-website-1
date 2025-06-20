@@ -1,12 +1,6 @@
 import fs from 'node:fs/promises';  // Using 'fs/promises' for promise-based file operations
 import express from 'express';  // Importing express to create the server
-import nodemailer from 'nodemailer';
-import dotenv from 'dotenv';
 
-dotenv.config(); // Load environment variables from .env file
-
-console.log("EMAIL_USER:", process.env.EMAIL_USER);
-console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "Loaded" : "Missing");
 const app = express();  // Creating an instance of express
 
 app.use(express.json());  // Middleware to parse JSON request bodies
@@ -26,18 +20,15 @@ app.get('/meals', async (req, res) => {
   const meals = await fs.readFile('./data/available-meals.json', 'utf8'); 
   res.json(JSON.parse(meals)); 
 }); 
-
-// Create reusable transporter object using SMTP transport (example Gmail SMTP)
-
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,  // Your email address
-    pass: process.env.EMAIL_PASS, // Your email password or app password
-  },
+app.get('/carousel-images', async (req, res) => {
+  try {
+    const images = await fs.readFile('./data/carousel-images.json', 'utf8');
+    res.json(JSON.parse(images));
+  } catch (error) {
+    console.error('Error reading carousel images:', error);
+    res.status(500).json({ message: 'Failed to load carousel images.' });
+  }
 });
-
-
 
 app.post('/orders', async (req, res) => {
   try {
@@ -72,32 +63,6 @@ app.post('/orders', async (req, res) => {
     const allOrders = JSON.parse(orders);
     allOrders.push(newOrder);
     await fs.writeFile('./data/orders.json', JSON.stringify(allOrders, null, 2));
-
-
-    // Send Notification Email
-
-    const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.NOTIFY_EMAIL || process.env.EMAIL_USER, // where you want to receive notifications
-      subject: `New Enquiry Received - ID: ${newOrder.id}`,
-      text: `New enquiry received from ${name}.\n
-Email: ${email}
-Mobile: ${mobile}
-Address: ${street}, ${city} - ${postalCode}
-
-Enquiry ID: ${newOrder.id}`,
-    };
-
-    transporter.sendMail(mailOptions, (error, info) => {
-      if (error) {
-        console.error('Error sending notification email:', error);
-      } else {
-        console.log('Notification email sent:', info.response);
-      }
-    });
-
-
-
 
     res.status(201).json({ message: 'Order created!' });
   } catch (error) {

@@ -12,13 +12,14 @@ body {
   background: linear-gradient(#29251c, #2c2306);
   color: #d9e2f1;
   min-height: 100vh;
-}
+} 
 
 #main-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3rem 10%;
+  justify-content: center;
+  align-items: center;  
+  padding: 2.1rem 1%;
+  
 }
 
 #main-header #title {
@@ -48,6 +49,14 @@ h1 {
   color: #ffc404;
   letter-spacing: 0.2rem;
   text-transform: uppercase;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-top: 2%;
+  color: #ffc404;
+
 }
 
 #meals {
@@ -266,6 +275,8 @@ h1 {
 .error h2 {
   margin: 0;
 }
+
+
 
 .error p {
   margin: 0;

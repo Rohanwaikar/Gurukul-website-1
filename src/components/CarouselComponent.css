@@ -1,0 +1,46 @@
+.carousel .slide img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover; /* Fills while maintaining aspect ratio */
+  border-radius: 12px;
+}
+
+.carousel .legend {
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 1.25rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  bottom: 20px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+   
+}
+
+.carousel .control-dots .dot {
+  background-color: #fff;
+  opacity: 0.7;
+}
+
+.carousel .control-dots .dot.selected {
+  background-color: #facc15; /* yellow highlight */
+}
+
+.carousel .control-arrow {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+}
+
+.carousel {
+  width: 100%;
+  max-width: 960px; /* Optional: limit max width */
+  margin: 0 auto;
+  position: relative;
+  resize: both;
+  overflow: hidden;
+  aspect-ratio: 16 / 9; /* Keeps a nice widescreen ratio */
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
