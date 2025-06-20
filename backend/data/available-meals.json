@@ -6,6 +6,13 @@
     "image": "images/gurukul-entry.jpg"
   },
   {
+
+    "id": "m7",
+    "name": "Whispering Waters",
+    "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
+    "image": "images/Lakeshore.jpeg"
+  },
+  {
     "id": "m2",
     "name": "Lakeshore Haven",
     "description": "Romaine lettuce tossed in Caesar dressing, topped with croutons and parmesan shavings.",
@@ -24,30 +31,10 @@
     "image": "images/swimming-pool.jpg"
   },
   {
-    "id": "m5",
-    "name": "Frontiers of Nature",
-    "description": "Romaine lettuce tossed in Caesar dressing, topped with croutons and parmesan shavings.",
-    "image": "images/wall-boundary.jpg"
-  },
-  {
     "id": "m6",
     "name": "Shino Serenity Huts",
     "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
     "image": "images/Huts.jpg"
-  },
-  {
-
-    "id": "m7",
-    "name": "Whispering Waters",
-    "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
-    "image": "images/Lake.jpg"
-  },
-  {
-
-    "id": "m8",
-    "name": "Lake View Entrance",
-    "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
-    "image": "images/front-building.jpg"
   },
   {
 
@@ -67,7 +54,7 @@
     "id": "m11",
     "name": "GamePoint Hall",
     "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
-    "image": "images/playing-hall.jpg"
+    "image": "images/Playing-hall.jpeg"
   },
   {
 
@@ -80,13 +67,13 @@
     "id": "m13",
     "name": "The Lakeside Nook",
     "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
-    "image": "images/Vadacha jhad.jpg"
+    "image": "images/Vadacha-jhad.jpeg"
   },
   {
     "id": "m14",
-    "name": "Lake View Entrance",
+    "name": "Tree-lined serenity",
     "description": "A classic pizza with fresh mozzarella, tomatoes, and basil on a thin and crispy crust.",
-    "image": "images/tree-view.jpg"
+    "image": "images/Trees-lane.jpeg"
   }
 
 ]
