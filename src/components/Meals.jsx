@@ -2,6 +2,8 @@ import useHttp from "./useHttp.jsx";
 import MealsItem from "./MealsItem.jsx";
 import baseUrl from "../baseUrl.js"
 
+import { motion } from "framer-motion";
+
 import UserProgressContext from "../store/UserProgressContext.jsx";
 import { useContext } from "react";
 
@@ -13,7 +15,7 @@ const { data, loading, error } = useHttp(`${baseUrl}/meals`, {}, []);
         <section>
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error}</p>}
-            <h2 className="center">&#9889;Explore the Spaces&#9889;</h2>
+            <motion.h2 className="center" whileHover={{ scale: 1.1 }}>&#9889;Explore the Spaces&#9889;</motion.h2>
 
             <ul id="meals">
                 {data.map(meal => (
@@ -27,7 +29,7 @@ const { data, loading, error } = useHttp(`${baseUrl}/meals`, {}, []);
 
             <p className="center">
                 <button className="btn" onClick={userProgressContext.showCheckout}>
-                    <h2>Enquiry Form</h2>
+                    <motion.h2 whileHover={{ scale: 1.1  }}>Enquiry Form</motion.h2>
                     </button>
             </p>    
         </section>
